@@ -1,0 +1,48 @@
+Source: mujs
+Priority: optional
+Maintainer: Bastian Germann <bastiangermann@fishpost.de>
+Build-Depends: debhelper-compat (= 13), libreadline-dev
+Standards-Version: 4.5.0
+Section: javascript
+Rules-Requires-Root: no
+Homepage: https://mujs.com/
+Vcs-Browser: https://salsa.debian.org/bage/mujs
+Vcs-Git: https://salsa.debian.org/bage/mujs.git
+
+Package: libmujs-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libmujs1 (= ${binary:Version}), ${misc:Depends}
+Description: Lightweight JavaScript interpreter (development package)
+ MuJS is a lightweight JavaScript interpreter designed for embedding in other
+ software to extend them with scripting capabilities.
+ .
+ MuJS was designed with a focus on small size, correctness, and simplicity.
+ It is written in portable C and implements ECMAScript as specified by ECMA-262.
+ The interface for binding with native code is designed to be as simple as
+ possible to use, and is very similar to Lua. There is no need to interact with
+ byzantine C++ template mechanisms, or worry about marking and unmarking garbage
+ collection roots, or wrestle with obscure build systems.
+
+Package: libmujs1
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lightweight JavaScript interpreter library
+ MuJS is a lightweight JavaScript interpreter designed for embedding in other
+ software to extend them with scripting capabilities.
+ .
+ MuJS was designed with a focus on small size, correctness, and simplicity.
+ This package contains the shared runtime library.
+
+Package: mujs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lightweight JavaScript interpreter
+ MuJS is a lightweight JavaScript interpreter designed for embedding in other
+ software to extend them with scripting capabilities.
+ .
+ MuJS was designed with a focus on small size, correctness, and simplicity.
+ This package contains the command line interpreter.

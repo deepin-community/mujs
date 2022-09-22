@@ -1,0 +1,3 @@
+usr/include/mujs.h
+usr/lib/*/libmujs.a
+usr/lib/*/pkgconfig/mujs.pc

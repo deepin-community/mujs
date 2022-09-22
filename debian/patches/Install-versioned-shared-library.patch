@@ -1,0 +1,21 @@
+From: Bastian Germann <bastiangermann@fishpost.de>
+Date: Thu, 30 Jul 2020 22:24:10 +0200
+Subject: Install versioned shared library
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 1702e67..889f706 100644
+--- a/Makefile
++++ b/Makefile
+@@ -115,7 +115,7 @@ install-static: install-common $(OUT)/libmujs.a
+ 	install -m 644 $(OUT)/libmujs.a $(DESTDIR)$(libdir)
+ 
+ install-shared: install-common $(OUT)/libmujs.so
+-	install -m 755 $(OUT)/libmujs.so $(DESTDIR)$(libdir)
++	install -m 755 $(OUT)/libmujs.so $(DESTDIR)$(libdir)/libmujs.so.1
+ 
+ install: install-static
+ 

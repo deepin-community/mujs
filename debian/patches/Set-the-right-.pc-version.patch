@@ -1,0 +1,22 @@
+From: Bastian Germann <bastiangermann@fishpost.de>
+Date: Wed, 17 Jun 2020 01:17:04 +0200
+Subject: Set the right .pc version
+
+Forwarded: not-needed
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 889f706..d18337d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -94,7 +94,7 @@ $(OUT)/mujs.pc:
+ 	@ echo Creating $@
+ 	@ echo > $@ Name: mujs
+ 	@ echo >> $@ Description: MuJS embeddable Javascript interpreter
+-	@ echo >> $@ Version: $(VERSION)
++	@ echo >> $@ Version: $(DEB_VERSION_UPSTREAM)
+ 	@ echo >> $@ Cflags: -I$(incdir)
+ 	@ echo >> $@ Libs: -L$(libdir) -lmujs
+ 	@ echo >> $@ Libs.private: -lm
