@@ -1,1 +1,12 @@
-.pc/
+# Optional testsuites
+tests
+specs
+
+# Generated files:
+build
+tags
+
+# Editor settings:
+user.make
+.exrc
+.vimrc

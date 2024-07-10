@@ -1,4 +1,4 @@
-libmujs.so.1 libmujs1 #MINVER#
+libmujs.so.3 libmujs3 #MINVER#
 * Build-Depends-Package: libmujs-dev
  jsB_init@Base 1.0.7
  jsB_initarray@Base 1.0.7
@@ -17,28 +17,21 @@ libmujs.so.1 libmujs1 #MINVER#
  jsB_props@Base 1.0.7
  jsC_compilefunction@Base 1.0.7
  jsC_compilescript@Base 1.0.7
- jsC_dumpfunction@Base 1.0.7
  jsC_error@Base 1.0.7
- jsC_opcodestring@Base 1.0.7
- jsP_aststring@Base 1.0.7
- jsP_dumplist@Base 1.0.7
- jsP_dumpsyntax@Base 1.0.7
  jsP_freeparse@Base 1.0.7
  jsP_parse@Base 1.0.7
  jsP_parsefunction@Base 1.0.7
  jsR_newenvironment@Base 1.0.7
+ jsR_unflattenarray@Base 1.3.0
  jsS_dumpstrings@Base 1.0.7
  jsS_freestrings@Base 1.0.7
  jsU_chartorune@Base 1.0.7
  jsU_isalpharune@Base 1.0.7
  jsU_islowerrune@Base 1.0.7
- jsU_isspacerune@Base 1.0.7
- jsU_istitlerune@Base 1.0.7
  jsU_isupperrune@Base 1.0.7
  jsU_runelen@Base 1.0.7
  jsU_runetochar@Base 1.0.7
  jsU_tolowerrune@Base 1.0.7
- jsU_totitlerune@Base 1.0.7
  jsU_toupperrune@Base 1.0.7
  jsU_utflen@Base 1.0.7
  jsV_delproperty@Base 1.0.7
@@ -81,6 +74,7 @@ libmujs.so.1 libmujs1 #MINVER#
  js_construct@Base 1.0.7
  js_copy@Base 1.0.7
  js_currentfunction@Base 1.0.7
+ js_currentfunctiondata@Base 1.2.0
  js_defaccessor@Base 1.0.7
  js_defglobal@Base 1.0.7
  js_defproperty@Base 1.0.7
@@ -90,8 +84,6 @@ libmujs.so.1 libmujs1 #MINVER#
  js_delregistry@Base 1.0.7
  js_dofile@Base 1.0.7
  js_dostring@Base 1.0.7
- js_dumpobject@Base 1.0.7
- js_dumpvalue@Base 1.0.7
  js_dup2@Base 1.0.7
  js_dup@Base 1.0.7
  js_endtry@Base 1.0.7
@@ -119,8 +111,10 @@ libmujs.so.1 libmujs1 #MINVER#
  js_isarray@Base 1.0.7
  js_isarrayindex@Base 1.0.7
  js_isboolean@Base 1.0.7
+ js_isbooleanobject@Base 1.3.0
  js_iscallable@Base 1.0.7
  js_iscoercible@Base 1.0.7
+ js_isdateobject@Base 1.3.0
  js_isdefined@Base 1.0.7
  js_iserror@Base 1.0.7
  js_isnull@Base 1.0.7
@@ -143,6 +137,7 @@ libmujs.so.1 libmujs1 #MINVER#
  js_newboolean@Base 1.0.7
  js_newcconstructor@Base 1.0.7
  js_newcfunction@Base 1.0.7
+ js_newcfunctionx@Base 1.2.0
  js_newerror@Base 1.0.7
  js_newevalerror@Base 1.0.7
  js_newfunction@Base 1.0.7
@@ -209,7 +204,6 @@ libmujs.so.1 libmujs1 #MINVER#
  js_setproperty@Base 1.0.7
  js_setregistry@Base 1.0.7
  js_setreport@Base 1.0.7
- js_stacktrace@Base 1.0.7
  js_strdup@Base 1.0.7
  js_strictequal@Base 1.0.7
  js_stringtofloat@Base 1.0.7

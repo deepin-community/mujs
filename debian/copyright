@@ -8,16 +8,16 @@ Copyright: 2013, 2017, Artifex Software
 License: ISC
 
 Files: debian/*
-Copyright: 2020 Bastian Germann <bastiangermann@fishpost.de>
+Copyright: 2020-2021 Bastian Germann <bage@debian.org>
 License: ISC
 
 Files: jsdtoa.c
 Copyright: 2009 Florian Loitsch
            1988-1993 The Regents of the University of California
            1994 Sun Microsystems, Inc.
-License: Expat AND MIT-Old
+License: Expat and MIT-Old
 
-Files: utf.*
+Files: utf*
 Copyright: 2002 Lucent Technologies
 Comment: The authors of this software are Rob Pike and Ken Thompson.
 License: MIT-Lucent
