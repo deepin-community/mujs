@@ -1,4 +1,4 @@
-From: Bastian Germann <bastiangermann@fishpost.de>
+From: Bastian Germann <bage@debian.org>
 Date: Wed, 17 Jun 2020 01:17:04 +0200
 Subject: Set the right .pc version
 
@@ -11,12 +11,12 @@ diff --git a/Makefile b/Makefile
 index 889f706..d18337d 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -94,7 +94,7 @@ $(OUT)/mujs.pc:
- 	@ echo Creating $@
- 	@ echo > $@ Name: mujs
- 	@ echo >> $@ Description: MuJS embeddable Javascript interpreter
--	@ echo >> $@ Version: $(VERSION)
-+	@ echo >> $@ Version: $(DEB_VERSION_UPSTREAM)
- 	@ echo >> $@ Cflags: -I$(incdir)
- 	@ echo >> $@ Libs: -L$(libdir) -lmujs
- 	@ echo >> $@ Libs.private: -lm
+@@ -106,7 +106,7 @@ build/release/mujs.pc:
+ 	@mkdir -p $(@D)
+ 	echo > $@ Name: mujs
+ 	echo >> $@ Description: MuJS embeddable Javascript interpreter
+-	echo >> $@ Version: $(VERSION)
++	echo >> $@ Version: $(DEB_VERSION_UPSTREAM)
+ 	echo >> $@ Cflags: -I$(incdir)
+ 	echo >> $@ Libs: -L$(libdir) -lmujs
+ 	echo >> $@ Libs.private: -lm

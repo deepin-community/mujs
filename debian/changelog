@@ -1,3 +1,75 @@
+mujs (1.3.3-3) unstable; urgency=medium
+
+  * QA upload
+  * Orphan the package
+
+ -- Bastian Germann <bage@debian.org>  Tue, 07 Nov 2023 00:30:17 +0100
+
+mujs (1.3.3-2) unstable; urgency=medium
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: Build during dh_auto_build. (Closes: #1050910)
+
+ -- Bastian Germann <bage@debian.org>  Thu, 31 Aug 2023 14:38:01 +0200
+
+mujs (1.3.3-1) unstable; urgency=medium
+
+  * New upstream version 1.3.3
+  * Rebase patches
+  * Use HTTPS for uscan
+  * Rename binary pkg because of ABI change
+
+ -- Bastian Germann <bage@debian.org>  Mon, 19 Jun 2023 10:23:20 +0200
+
+mujs (1.3.2-1) unstable; urgency=medium
+
+  * d/watch: Change to git because of lacking releases
+  * New upstream version 1.3.2 (Fixes CVE-2022-44789)
+
+ -- Bastian Germann <bage@debian.org>  Thu, 24 Nov 2022 17:11:57 +0100
+
+mujs (1.3.0-1) unstable; urgency=medium
+
+  * d/watch: Scan also for tar.gz
+  * New upstream version 1.3.0
+  * Drop upstream patches
+
+ -- Bastian Germann <bage@debian.org>  Sun, 06 Nov 2022 22:01:52 +0100
+
+mujs (1.2.0-3) unstable; urgency=high
+
+  * Fix CVE-2022-30974 and CVE-2022-30975 via upstream patches
+
+ -- Bastian Germann <bage@debian.org>  Tue, 05 Jul 2022 14:32:21 +0200
+
+mujs (1.2.0-2) unstable; urgency=medium
+
+  * Source-only reupload
+
+ -- Bastian Germann <bage@debian.org>  Wed, 29 Jun 2022 00:48:14 +0200
+
+mujs (1.2.0-1) experimental; urgency=medium
+
+  * Import new version
+  * Rebase patches to new version
+  * Reflect ABI change in lib package rename
+
+ -- Bastian Germann <bage@debian.org>  Sat, 18 Jun 2022 22:40:10 +0200
+
+mujs (1.1.3-4) unstable; urgency=high
+
+  * Clear jump list after patching jump addresses (CVE-2021-45005)
+
+ -- Bastian Germann <bage@debian.org>  Fri, 25 Feb 2022 20:33:53 +0100
+
+mujs (1.1.3-3) unstable; urgency=medium
+
+  * Move git to debian namespace
+  * Set bage's debian.org email
+  * d/copyright: utftype.c is also (c) by Lucent
+
+ -- Bastian Germann <bage@debian.org>  Sat, 04 Dec 2021 10:54:09 +0100
+
 mujs (1.1.3-2) unstable; urgency=medium
 
   * Move experimental to unstable

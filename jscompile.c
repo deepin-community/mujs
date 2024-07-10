@@ -1,8 +1,4 @@
 #include "jsi.h"
-#include "jslex.h"
-#include "jsparse.h"
-#include "jscompile.h"
-#include "jsvalue.h" /* for jsV_numbertostring */
 
 #define cexp jsC_cexp /* collision with math.h */
 
@@ -288,8 +284,12 @@ static void carray(JF, js_Ast *list)
 {
 	while (list) {
 		emitline(J, F, list->a);
-		cexp(J, F, list->a);
-		emit(J, F, OP_INITARRAY);
+		if (list->a->type == EXP_ELISION) {
+			emit(J, F, OP_SKIPARRAY);
+		} else {
+			cexp(J, F, list->a);
+			emit(J, F, OP_INITARRAY);
+		}
 		list = list->b;
 	}
 }
@@ -584,9 +584,7 @@ static void cexp(JF, js_Ast *exp)
 		emitline(J, F, exp);
 		emitnumber(J, F, exp->number);
 		break;
-	case EXP_UNDEF:
-		emitline(J, F, exp);
-		emit(J, F, OP_UNDEF);
+	case EXP_ELISION:
 		break;
 	case EXP_NULL:
 		emitline(J, F, exp);
@@ -779,7 +777,7 @@ static void cexp(JF, js_Ast *exp)
 		break;
 
 	default:
-		jsC_error(J, exp, "unknown expression: (%s)", jsP_aststring(exp->type));
+		jsC_error(J, exp, "unknown expression type");
 	}
 }
 
@@ -794,15 +792,19 @@ static void addjump(JF, enum js_AstType type, js_Ast *target, int inst)
 	target->jumps = jump;
 }
 
-static void labeljumps(JF, js_JumpList *jump, int baddr, int caddr)
+static void labeljumps(JF, js_Ast *stm, int baddr, int caddr)
 {
+	js_JumpList *jump = stm->jumps;
 	while (jump) {
+		js_JumpList *next = jump->next;
 		if (jump->type == STM_BREAK)
 			labelto(J, F, jump->inst, baddr);
 		if (jump->type == STM_CONTINUE)
 			labelto(J, F, jump->inst, caddr);
-		jump = jump->next;
+		js_free(J, jump);
+		jump = next;
 	}
+	stm->jumps = NULL;
 }
 
 static int isloop(enum js_AstType T)
@@ -1121,7 +1123,7 @@ static void cstm(JF, js_Ast *stm)
 		cexp(J, F, stm->b);
 		emitline(J, F, stm);
 		emitjumpto(J, F, OP_JTRUE, loop);
-		labeljumps(J, F, stm->jumps, here(J,F), cont);
+		labeljumps(J, F, stm, here(J,F), cont);
 		break;
 
 	case STM_WHILE:
@@ -1133,7 +1135,7 @@ static void cstm(JF, js_Ast *stm)
 		emitline(J, F, stm);
 		emitjumpto(J, F, OP_JUMP, loop);
 		label(J, F, end);
-		labeljumps(J, F, stm->jumps, here(J,F), loop);
+		labeljumps(J, F, stm, here(J,F), loop);
 		break;
 
 	case STM_FOR:
@@ -1164,7 +1166,7 @@ static void cstm(JF, js_Ast *stm)
 		emitjumpto(J, F, OP_JUMP, loop);
 		if (end)
 			label(J, F, end);
-		labeljumps(J, F, stm->jumps, here(J,F), cont);
+		labeljumps(J, F, stm, here(J,F), cont);
 		break;
 
 	case STM_FOR_IN:
@@ -1189,12 +1191,12 @@ static void cstm(JF, js_Ast *stm)
 			emitjumpto(J, F, OP_JUMP, loop);
 		}
 		label(J, F, end);
-		labeljumps(J, F, stm->jumps, here(J,F), loop);
+		labeljumps(J, F, stm, here(J,F), loop);
 		break;
 
 	case STM_SWITCH:
 		cswitch(J, F, stm->a, stm->b);
-		labeljumps(J, F, stm->jumps, here(J,F), 0);
+		labeljumps(J, F, stm, here(J,F), 0);
 		break;
 
 	case STM_LABEL:
@@ -1204,7 +1206,7 @@ static void cstm(JF, js_Ast *stm)
 			stm = stm->b;
 		/* loops and switches have already been labelled */
 		if (!isloop(stm->type) && stm->type != STM_SWITCH)
-			labeljumps(J, F, stm->jumps, here(J,F), 0);
+			labeljumps(J, F, stm, here(J,F), 0);
 		break;
 
 	case STM_BREAK:
@@ -1362,7 +1364,7 @@ static void cfundecs(JF, js_Ast *list)
 			emitfunction(J, F, newfun(J, stm->line, stm->a, stm->b, stm->c, 0, F->strict));
 			emitline(J, F, stm);
 			emit(J, F, OP_SETLOCAL);
-			emitarg(J, F, addlocal(J, F, stm->a, 0));
+			emitarg(J, F, addlocal(J, F, stm->a, 1));
 			emit(J, F, OP_POP);
 		}
 		list = list->b;
@@ -1396,7 +1398,7 @@ static void cfunbody(JF, js_Ast *name, js_Ast *params, js_Ast *body)
 		if (findlocal(J, F, name->string) < 0) {
 			emit(J, F, OP_CURRENT);
 			emit(J, F, OP_SETLOCAL);
-			emitarg(J, F, addlocal(J, F, name, 0));
+			emitarg(J, F, addlocal(J, F, name, 1));
 			emit(J, F, OP_POP);
 		}
 	}

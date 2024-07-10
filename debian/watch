@@ -1,2 +1,3 @@
 version=4
-https://mujs.com/downloads/mujs-(\d\S+).tar.xz
+opts=mode=git,gitmode=full \
+https://git.ghostscript.com/mujs.git refs/tags/(\d\S+)

@@ -5,18 +5,17 @@ include /usr/share/dpkg/pkg-info.mk
 export DEB_VERSION_UPSTREAM
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export DESTDIR = debian/tmp
-export build = debug
-export prefix = /usr
-export libdir = $(prefix)/lib/${DEB_HOST_MULTIARCH}
+prefix=/usr
+libdir=$(prefix)/lib/${DEB_HOST_MULTIARCH}
 CFLAGS=$(shell dpkg-buildflags --get CFLAGS)
 
 %:
 	dh $@
 
 override_dh_auto_build:
-	dh_auto_build -- CFLAGS="$(CFLAGS) -Wl,-soname,libmujs.so.1" shared
-	dh_auto_build -- CFLAGS="$(CFLAGS)"
+	dh_auto_build -- CFLAGS="$(CFLAGS) -Wl,-soname,libmujs.so.3" build/release/libmujs.so
+	dh_auto_build -- prefix=$(prefix) libdir=$(libdir) CFLAGS="$(CFLAGS)" release
 
 override_dh_auto_install:
-	$(MAKE) install-shared
-	dh_auto_install --destdir=$(DESTDIR)
+	$(MAKE) prefix=$(prefix) libdir=$(libdir) install-shared
+	dh_auto_install --destdir=$(DESTDIR) -- prefix=$(prefix) libdir=$(libdir)
