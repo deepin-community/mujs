@@ -7,11 +7,9 @@ Forwarded: not-needed
  Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index 889f706..d18337d 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -106,7 +106,7 @@ build/release/mujs.pc:
+@@ -112,7 +112,7 @@
  	@mkdir -p $(@D)
  	echo > $@ Name: mujs
  	echo >> $@ Description: MuJS embeddable Javascript interpreter

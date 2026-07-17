@@ -1,3 +1,29 @@
+mujs (1.3.6-1) unstable; urgency=medium
+
+  * New upstream version 1.3.6
+  * debian/copyright
+    + Extend copyright debian holders years
+
+ -- Daniel Echeverri <epsilon@debian.org>  Sat, 08 Feb 2025 15:30:35 -0500
+
+mujs (1.3.5-1) unstable; urgency=medium
+
+  * New upstream version 1.3.5
+  * Refresh all patches
+  * Set myself as maintainer. (Closes: #1055354)
+  * Bump to Standards-Version 4.7.0
+  * Update debian/libmujs3.symbols file.
+  * debian/patches
+    + Add Add_hardening_flags.diff patch.
+  * debian/rules
+    + Add LDFLAGS in dh_auto_build.
+  * Add debian/upstream/metadata file.
+  * Add debian/mujs.doc-base file.
+  * debian/copyright
+    + Add myself in debian copyright.
+
+ -- Daniel Echeverri <epsilon@debian.org>  Sat, 12 Oct 2024 12:03:55 -0500
+
 mujs (1.3.3-3) unstable; urgency=medium
 
   * QA upload

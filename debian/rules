@@ -13,7 +13,7 @@ CFLAGS=$(shell dpkg-buildflags --get CFLAGS)
 	dh $@
 
 override_dh_auto_build:
-	dh_auto_build -- CFLAGS="$(CFLAGS) -Wl,-soname,libmujs.so.3" build/release/libmujs.so
+	dh_auto_build -- CFLAGS="$(CFLAGS) $(LDFLAGS) $(CPPFLAGS) -Wl,-soname,libmujs.so.3" build/release/libmujs.so
 	dh_auto_build -- prefix=$(prefix) libdir=$(libdir) CFLAGS="$(CFLAGS)" release
 
 override_dh_auto_install:
