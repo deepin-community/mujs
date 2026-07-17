@@ -1,8 +1,8 @@
 Source: mujs
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Maintainer: Daniel Echeverri <epsilon@debian.org>
 Build-Depends: debhelper-compat (= 13), libreadline-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.7.0
 Section: javascript
 Rules-Requires-Root: no
 Homepage: https://mujs.com/

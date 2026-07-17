@@ -6,13 +6,11 @@ Subject: Install versioned shared library
  Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index 1702e67..889f706 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -125,7 +125,7 @@ install-static: install-common build/release/libmujs.a
+@@ -131,7 +131,7 @@
  	install -m 644 build/release/libmujs.a $(DESTDIR)$(libdir)
-
+ 
  install-shared: install-common build/release/libmujs.$(SO)
 -	install -m 755 build/release/libmujs.$(SO) $(DESTDIR)$(libdir)
 +	install -m 755 build/release/libmujs.$(SO) $(DESTDIR)$(libdir)/libmujs.so.3

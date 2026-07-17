@@ -1,0 +1,8 @@
+Document: mujs-manual
+Title: Lightweight Javascript interpreter manual
+Abstract: lightweight Javascript interpreter designed for embedding in other software to extend them with scripting capabilities
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/mujs/docs/index.html
+Files: /usr/share/doc/mujs/docs/*

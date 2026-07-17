@@ -9,6 +9,7 @@ License: ISC
 
 Files: debian/*
 Copyright: 2020-2021 Bastian Germann <bage@debian.org>
+	   2024-2025 Daniel Echeverri <epsilon@debian.org>
 License: ISC
 
 Files: jsdtoa.c

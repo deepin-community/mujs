@@ -33,7 +33,6 @@ libmujs.so.3 libmujs3 #MINVER#
  jsU_runetochar@Base 1.0.7
  jsU_tolowerrune@Base 1.0.7
  jsU_toupperrune@Base 1.0.7
- jsU_utflen@Base 1.0.7
  jsV_delproperty@Base 1.0.7
  jsV_getownproperty@Base 1.0.7
  jsV_getproperty@Base 1.0.7
@@ -236,5 +235,5 @@ libmujs.so.3 libmujs3 #MINVER#
  js_typeof@Base 1.0.7
  js_unref@Base 1.0.7
  js_urierror@Base 1.0.7
- js_utfidxtoptr@Base 1.0.7
  js_utfptrtoidx@Base 1.0.7
+ js_utflen@Base 1.3.5

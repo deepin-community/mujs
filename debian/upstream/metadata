@@ -1,0 +1,10 @@
+Reference:
+  Author: Artifex Software, Inc
+  Title: "Lightweight JavaScript interpreter"
+  Year: 2013
+  URL: https://mujs.com
+Repository: git://git.ghostscript.com/mujs.git
+Repository-Browse: https://git.ghostscript.com/?p=mujs.git;a=summary
+Bug-Database: https://bugs.ghostscript.com/describecomponents.cgi?product=MuJS
+Bug-Submit: https://bugs.ghostscript.com/enter_bug.cgi
+
